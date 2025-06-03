@@ -12,7 +12,7 @@ import { Application } from "@/types";
 import { StatusBadge } from "@/components/ui/status-badge";
 
 export default function ApplicationQueue() {
-  const [applications] = useState<Application[]>(generateMockApplications(50));
+  const [applications] = useState<Application[]>(() => generateMockApplications());
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [priorityFilter, setPriorityFilter] = useState<string>("all");
   const [searchTerm, setSearchTerm] = useState("");
