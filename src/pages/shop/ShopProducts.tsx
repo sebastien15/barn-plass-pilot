@@ -112,10 +112,10 @@ export default function ShopProducts() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <section className="bg-[#228B22] text-white py-12">
+      <section className="bg-gradient-to-r from-[#8B2E2E] to-[#A73939] text-white py-12">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-4">Tutti i Prodotti</h1>
-          <p className="text-xl text-gray-100">
+          <h1 className="text-4xl font-light mb-4">Tutti i Prodotti</h1>
+          <p className="text-xl text-gray-100 font-light">
             Scopri la nostra gamma completa di BBQ artigianali
           </p>
         </div>
@@ -131,13 +131,13 @@ export default function ShopProducts() {
                 placeholder="Cerca prodotti..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 border-[#228B22]"
+                className="pl-10 border-[#8B2E2E]"
               />
             </div>
             
             <div className="flex gap-4">
               <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                <SelectTrigger className="w-[180px] border-[#228B22]">
+                <SelectTrigger className="w-[180px] border-[#8B2E2E]">
                   <Filter className="h-4 w-4 mr-2" />
                   <SelectValue placeholder="Categoria" />
                 </SelectTrigger>
@@ -150,7 +150,7 @@ export default function ShopProducts() {
               </Select>
 
               <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="w-[180px] border-[#228B22]">
+                <SelectTrigger className="w-[180px] border-[#8B2E2E]">
                   <SelectValue placeholder="Ordina per" />
                 </SelectTrigger>
                 <SelectContent>
@@ -177,7 +177,7 @@ export default function ShopProducts() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sortedProducts.map((product) => (
-              <Card key={product.id} className="border-2 border-[#228B22] hover:shadow-lg transition-shadow">
+              <Card key={product.id} className="border-2 border-[#8B2E2E] hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
                   <div className="relative w-full h-48 bg-gray-200 rounded-lg mb-4">
                     <img 
@@ -186,7 +186,7 @@ export default function ShopProducts() {
                       className="w-full h-full object-cover rounded-lg"
                     />
                     {product.featured && (
-                      <Badge className="absolute top-2 left-2 bg-[#228B22]">
+                      <Badge className="absolute top-2 left-2 bg-[#8B2E2E]">
                         In Evidenza
                       </Badge>
                     )}
@@ -235,9 +235,9 @@ export default function ShopProducts() {
                   <Button 
                     className={`w-full ${
                       product.inStock 
-                        ? "bg-[#228B22] hover:bg-[#32CD32] text-white" 
+                        ? "bg-[#8B2E2E] hover:bg-[#A73939] text-white" 
                         : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                    }`}
+                    } font-light`}
                     disabled={!product.inStock}
                   >
                     <ShoppingCart className="h-4 w-4 mr-2" />
@@ -256,7 +256,7 @@ export default function ShopProducts() {
                   setSearchTerm("");
                   setCategoryFilter("all");
                 }}
-                className="mt-4 bg-[#228B22] hover:bg-[#32CD32] text-white"
+                className="mt-4 bg-[#8B2E2E] hover:bg-[#A73939] text-white font-light"
               >
                 Rimuovi Filtri
               </Button>
@@ -266,10 +266,10 @@ export default function ShopProducts() {
       </section>
 
       {/* Newsletter */}
-      <section className="py-16 bg-[#228B22] text-white">
+      <section className="py-16 bg-[#8B2E2E] text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Non perdere le novità!</h2>
-          <p className="text-xl mb-8">
+          <h2 className="text-3xl font-light mb-6">Non perdere le novità!</h2>
+          <p className="text-xl mb-8 font-light">
             Iscriviti per ricevere offerte esclusive e aggiornamenti sui nuovi prodotti
           </p>
           
@@ -279,7 +279,7 @@ export default function ShopProducts() {
               placeholder="La tua email..."
               className="flex-1 px-4 py-3 rounded-lg text-gray-900 border-0"
             />
-            <Button className="bg-white text-[#228B22] hover:bg-gray-100 px-6 py-3">
+            <Button className="bg-white text-[#8B2E2E] hover:bg-gray-100 px-6 py-3 font-light">
               Iscriviti
             </Button>
           </div>

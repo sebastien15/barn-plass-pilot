@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -35,8 +36,15 @@ export default function Homepage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#1C1C1C] via-[#8B2E2E] to-[#1C1C1C] text-white py-20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative bg-gradient-to-r from-[#1C1C1C] via-[#8B2E2E] to-[#1C1C1C] text-white py-20 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80')"
+          }}
+        />
+        <div className="relative container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-light mb-6">
             Il maiale sfilacciato che si scioglie in bocca
           </h1>
@@ -49,13 +57,13 @@ export default function Homepage() {
           
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
             <Link to="/catalogo-b2b">
-              <Button size="lg" className="bg-[#8B2E2E] hover:bg-[#A73939] text-white px-8 py-4 text-lg font-light">
+              <Button size="lg" className="bg-[#8B2E2E] hover:bg-[#A73939] text-white px-8 py-4 text-lg font-light shadow-lg">
                 Esplora i nostri tagli
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link to="/shop">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#8B2E2E] px-8 py-4 text-lg font-light">
+              <Button size="lg" className="bg-white text-[#8B2E2E] hover:bg-gray-100 px-8 py-4 text-lg font-light shadow-lg">
                 Acquista dal nostro shop
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -168,12 +176,12 @@ export default function Homepage() {
           
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             <Link to="/contatti">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#8B2E2E] px-8 py-4 font-light">
+              <Button size="lg" className="bg-white text-[#8B2E2E] hover:bg-gray-100 px-8 py-4 font-light shadow-lg">
                 Richiedi Preventivo
               </Button>
             </Link>
             <Link to="/il-team">
-              <Button size="lg" className="bg-white text-[#8B2E2E] hover:bg-gray-100 px-8 py-4 font-light">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#8B2E2E] px-8 py-4 font-light">
                 Conosci il Team
               </Button>
             </Link>
