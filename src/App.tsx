@@ -2,190 +2,61 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useAuthStore } from "@/stores/authStore";
-import { DashboardLayout } from "@/components/layout/dashboard-layout";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 
 // Pages
-import Login from "./pages/Login";
-import GuardianDashboard from "./pages/guardian/GuardianDashboard";
-import GuardianApplications from "./pages/guardian/GuardianApplications";
-import CaseManagerDashboard from "./pages/case-manager/CaseManagerDashboard";
-import ApplicationQueue from "./pages/case-manager/ApplicationQueue";
+import Homepage from "./pages/Homepage";
+import About from "./pages/About";
+import Team from "./pages/Team";
+import ProductsCatalog from "./pages/ProductsCatalog";
+import Gallery from "./pages/Gallery";
+import Contact from "./pages/Contact";
+import Shop from "./pages/shop/Shop";
+import ShopProducts from "./pages/shop/ShopProducts";
+import Cart from "./pages/shop/Cart";
+import Checkout from "./pages/shop/Checkout";
+import ThankYou from "./pages/shop/ThankYou";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
-
-// Protected Route Component
-function ProtectedRoute({ children, requiredRole }: { children: React.ReactNode; requiredRole?: string }) {
-  const { isAuthenticated, user } = useAuthStore();
-  
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
-  }
-  
-  if (requiredRole && user?.role !== requiredRole) {
-    return <Navigate to="/unauthorized" replace />;
-  }
-  
-  return <DashboardLayout>{children}</DashboardLayout>;
-}
-
-// Role-based dashboard redirect
-function DashboardRedirect() {
-  const { user } = useAuthStore();
-  
-  switch (user?.role) {
-    case 'guardian':
-      return <Navigate to="/guardian" replace />;
-    case 'case_manager':
-      return <Navigate to="/case-manager" replace />;
-    case 'kindergarten_staff':
-      return <Navigate to="/staff" replace />;
-    case 'admin':
-      return <Navigate to="/admin" replace />;
-    default:
-      return <Navigate to="/login" replace />;
-  }
-}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <Toaster />
     <Sonner />
     <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<DashboardRedirect />} />
-        
-        {/* Guardian Routes */}
-        <Route path="/guardian" element={
-          <ProtectedRoute requiredRole="guardian">
-            <GuardianDashboard />
-          </ProtectedRoute>
-        } />
-        <Route path="/guardian/applications" element={
-          <ProtectedRoute requiredRole="guardian">
-            <GuardianApplications />
-          </ProtectedRoute>
-        } />
-        <Route path="/guardian/offers" element={
-          <ProtectedRoute requiredRole="guardian">
-            <div className="p-8 text-center">
-              <h1 className="text-2xl font-bold mb-4">Mine tilbud</h1>
-              <p className="text-gray-600">Denne siden er under utvikling</p>
-            </div>
-          </ProtectedRoute>
-        } />
-        
-        {/* Case Manager Routes */}
-        <Route path="/case-manager" element={
-          <ProtectedRoute requiredRole="case_manager">
-            <CaseManagerDashboard />
-          </ProtectedRoute>
-        } />
-        <Route path="/case-manager/queue" element={
-          <ProtectedRoute requiredRole="case_manager">
-            <ApplicationQueue />
-          </ProtectedRoute>
-        } />
-        <Route path="/case-manager/reports" element={
-          <ProtectedRoute requiredRole="case_manager">
-            <div className="p-8 text-center">
-              <h1 className="text-2xl font-bold mb-4">Rapporter</h1>
-              <p className="text-gray-600">Denne siden er under utvikling</p>
-            </div>
-          </ProtectedRoute>
-        } />
-        <Route path="/case-manager/settings" element={
-          <ProtectedRoute requiredRole="case_manager">
-            <div className="p-8 text-center">
-              <h1 className="text-2xl font-bold mb-4">Innstillinger</h1>
-              <p className="text-gray-600">Denne siden er under utvikling</p>
-            </div>
-          </ProtectedRoute>
-        } />
-        
-        {/* Staff Routes */}
-        <Route path="/staff" element={
-          <ProtectedRoute requiredRole="kindergarten_staff">
-            <div className="p-8 text-center">
-              <h1 className="text-2xl font-bold mb-4">Barnehage Dashboard</h1>
-              <p className="text-gray-600">Denne siden er under utvikling</p>
-            </div>
-          </ProtectedRoute>
-        } />
-        <Route path="/staff/capacity" element={
-          <ProtectedRoute requiredRole="kindergarten_staff">
-            <div className="p-8 text-center">
-              <h1 className="text-2xl font-bold mb-4">Kapasitetsstyring</h1>
-              <p className="text-gray-600">Denne siden er under utvikling</p>
-            </div>
-          </ProtectedRoute>
-        } />
-        <Route path="/staff/offers" element={
-          <ProtectedRoute requiredRole="kindergarten_staff">
-            <div className="p-8 text-center">
-              <h1 className="text-2xl font-bold mb-4">Tilbudshåndtering</h1>
-              <p className="text-gray-600">Denne siden er under utvikling</p>
-            </div>
-          </ProtectedRoute>
-        } />
-        <Route path="/staff/children" element={
-          <ProtectedRoute requiredRole="kindergarten_staff">
-            <div className="p-8 text-center">
-              <h1 className="text-2xl font-bold mb-4">Barn oversikt</h1>
-              <p className="text-gray-600">Denna siden er under utvikling</p>
-            </div>
-          </ProtectedRoute>
-        } />
-        
-        {/* Admin Routes */}
-        <Route path="/admin" element={
-          <ProtectedRoute requiredRole="admin">
-            <div className="p-8 text-center">
-              <h1 className="text-2xl font-bold mb-4">Administrator Dashboard</h1>
-              <p className="text-gray-600">Denna siden er under utvikling</p>
-            </div>
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/scoring" element={
-          <ProtectedRoute requiredRole="admin">
-            <div className="p-8 text-center">
-              <h1 className="text-2xl font-bold mb-4">Poengreglar</h1>
-              <p className="text-gray-600">Denna siden er under utvikling</p>
-            </div>
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/users" element={
-          <ProtectedRoute requiredRole="admin">
-            <div className="p-8 text-center">
-              <h1 className="text-2xl font-bold mb-4">Brukerstyring</h1>
-              <p className="text-gray-600">Denna siden er under utvikling</p>
-            </div>
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/system" element={
-          <ProtectedRoute requiredRole="admin">
-            <div className="p-8 text-center">
-              <h1 className="text-2xl font-bold mb-4">Systemovervåking</h1>
-              <p className="text-gray-600">Denna siden er under utvikling</p>
-            </div>
-          </ProtectedRoute>
-        } />
-        
-        <Route path="/unauthorized" element={
-          <div className="min-h-screen flex items-center justify-center bg-gray-50">
-            <div className="text-center">
-              <h1 className="text-4xl font-bold mb-4">403</h1>
-              <p className="text-xl text-gray-600 mb-4">Ingen tilgang</p>
-              <p className="text-gray-500">Du har ikke tilgang til denna siden.</p>
-            </div>
-          </div>
-        } />
-        
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div className="min-h-screen bg-white">
+        <Header />
+        <main>
+          <Routes>
+            {/* B2B Main Site Routes */}
+            <Route path="/" element={<Homepage />} />
+            <Route path="/chi-siamo" element={<About />} />
+            <Route path="/il-team" element={<Team />} />
+            <Route path="/catalogo-b2b" element={<ProductsCatalog />} />
+            <Route path="/galleria" element={<Gallery />} />
+            <Route path="/contatti" element={<Contact />} />
+            
+            {/* B2C Shop Routes */}
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/shop/prodotti" element={<ShopProducts />} />
+            <Route path="/shop/carrello" element={<Cart />} />
+            <Route path="/shop/checkout" element={<Checkout />} />
+            <Route path="/shop/grazie" element={<ThankYou />} />
+            
+            {/* Legal Pages */}
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/termini" element={<Terms />} />
+            
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </BrowserRouter>
   </QueryClientProvider>
 );
