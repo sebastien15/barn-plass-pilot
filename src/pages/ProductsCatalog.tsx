@@ -83,19 +83,19 @@ export default function ProductsCatalog() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[#1C1C1C] to-[#8B2E2E] text-white py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Catalogo B2B</h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
+          <h1 className="text-4xl md:text-5xl font-light mb-6">Catalogo B2B</h1>
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8 font-light">
             Scopri la nostra gamma completa di prodotti BBQ artigianali, 
             pensati specificamente per ristoranti, pub e food service professionali
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <Link to="/contatti">
-              <Button size="lg" className="bg-white text-[#8B2E2E] hover:bg-gray-100 px-8 py-4">
+              <Button size="lg" className="bg-white text-[#8B2E2E] hover:bg-gray-100 px-8 py-4 font-light">
                 Richiedi Listino Prezzi
               </Button>
             </Link>
             <Link to="/shop">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#8B2E2E] px-8 py-4">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#8B2E2E] px-8 py-4 font-light">
                 Shop per Privati
               </Button>
             </Link>
@@ -107,7 +107,7 @@ export default function ProductsCatalog() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#1C1C1C] mb-4">Perché Scegliere House of Pulled</h2>
+            <h2 className="text-3xl font-light text-[#1C1C1C] mb-4">Perché Scegliere House of Pulled</h2>
           </div>
           
           <div className="grid md:grid-cols-4 gap-8">
@@ -115,32 +115,32 @@ export default function ProductsCatalog() {
               <div className="w-16 h-16 bg-[#8B2E2E] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#1C1C1C] mb-2">Cottura Low & Slow</h3>
-              <p className="text-gray-600">12-16 ore di cottura lenta per massima tenerezza</p>
+              <h3 className="text-xl font-medium text-[#1C1C1C] mb-2">Cottura Low & Slow</h3>
+              <p className="text-gray-600 font-light">12-16 ore di cottura lenta per massima tenerezza</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 bg-[#8B2E2E] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#1C1C1C] mb-2">CE Certified</h3>
-              <p className="text-gray-600">Certificazione europea dal 2022 per massima qualità</p>
+              <h3 className="text-xl font-medium text-[#1C1C1C] mb-2">CE Certified</h3>
+              <p className="text-gray-600 font-light">Certificazione europea dal 2022 per massima qualità</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 bg-[#8B2E2E] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Truck className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#1C1C1C] mb-2">Durata 70 Giorni</h3>
-              <p className="text-gray-600">Conservazione sottovuoto per massima praticità</p>
+              <h3 className="text-xl font-medium text-[#1C1C1C] mb-2">Durata 70 Giorni</h3>
+              <p className="text-gray-600 font-light">Conservazione sottovuoto per massima praticità</p>
             </div>
             
             <div className="text-center">
               <div className="w-16 h-16 bg-[#8B2E2E] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#1C1C1C] mb-2">200+ Clienti</h3>
-              <p className="text-gray-600">Ristoranti e pub serviti in tutta Italia</p>
+              <h3 className="text-xl font-medium text-[#1C1C1C] mb-2">200+ Clienti</h3>
+              <p className="text-gray-600 font-light">Ristoranti e pub serviti in tutta Italia</p>
             </div>
           </div>
         </div>
@@ -150,8 +150,8 @@ export default function ProductsCatalog() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#1C1C1C] mb-4">I Nostri Prodotti</h2>
-            <p className="text-xl text-gray-600">
+            <h2 className="text-3xl font-light text-[#1C1C1C] mb-4">I Nostri Prodotti</h2>
+            <p className="text-xl text-gray-600 font-light">
               Ogni prodotto è realizzato con ingredienti selezionati e tecniche artigianali
             </p>
           </div>
@@ -167,15 +167,15 @@ export default function ProductsCatalog() {
                       className="w-full h-full object-cover rounded-lg"
                     />
                   </div>
-                  <span className="text-sm bg-[#8B2E2E] text-white px-3 py-1 rounded-full">
+                  <span className="text-sm bg-[#8B2E2E] text-white px-3 py-1 rounded-full font-light">
                     {product.category}
                   </span>
-                  <h3 className="text-xl font-bold text-[#8B2E2E] mb-2 mt-3">{product.name}</h3>
-                  <p className="text-gray-700 mb-4">{product.description}</p>
+                  <h3 className="text-xl font-medium text-[#8B2E2E] mb-2 mt-3">{product.name}</h3>
+                  <p className="text-gray-700 mb-4 font-light">{product.description}</p>
                   
                   <div className="mb-4">
-                    <h4 className="font-semibold text-[#1C1C1C] mb-2">Caratteristiche:</h4>
-                    <ul className="text-sm text-gray-600">
+                    <h4 className="font-medium text-[#1C1C1C] mb-2">Caratteristiche:</h4>
+                    <ul className="text-sm text-gray-600 font-light">
                       {product.features.map((feature, idx) => (
                         <li key={idx} className="mb-1">• {feature}</li>
                       ))}
@@ -183,10 +183,10 @@ export default function ProductsCatalog() {
                   </div>
                   
                   <div className="space-y-2">
-                    <p className="text-center text-[#8B2E2E] font-semibold">
+                    <p className="text-center text-[#8B2E2E] font-medium">
                       Contattaci per prezzi commerciali
                     </p>
-                    <Button className="w-full bg-[#8B2E2E] hover:bg-[#A73939] text-white">
+                    <Button className="w-full bg-[#8B2E2E] hover:bg-[#A73939] text-white font-light">
                       Richiedi Informazioni
                     </Button>
                   </div>
@@ -200,29 +200,29 @@ export default function ProductsCatalog() {
       {/* Custom Orders */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-[#1C1C1C] mb-6">Ordini Personalizzati</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-light text-[#1C1C1C] mb-6">Ordini Personalizzati</h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto font-light">
             Hai esigenze specifiche? Creiamo soluzioni BBQ su misura per il tuo locale. 
             Marinature personalizzate, formati speciali e ricette esclusive.
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <Card className="p-6">
-              <h4 className="font-bold text-[#8B2E2E] mb-3">Ricette Esclusive</h4>
-              <p className="text-gray-600">Sviluppiamo ricette uniche per il tuo brand</p>
+              <h4 className="font-medium text-[#8B2E2E] mb-3">Ricette Esclusive</h4>
+              <p className="text-gray-600 font-light">Sviluppiamo ricette uniche per il tuo brand</p>
             </Card>
             <Card className="p-6">
-              <h4 className="font-bold text-[#8B2E2E] mb-3">Formati Personalizzati</h4>
-              <p className="text-gray-600">Porzioni e packaging studiati per le tue esigenze</p>
+              <h4 className="font-medium text-[#8B2E2E] mb-3">Formati Personalizzati</h4>
+              <p className="text-gray-600 font-light">Porzioni e packaging studiati per le tue esigenze</p>
             </Card>
             <Card className="p-6">
-              <h4 className="font-bold text-[#8B2E2E] mb-3">Consulenza Culinaria</h4>
-              <p className="text-gray-600">Supporto del nostro chef per l'integrazione in menu</p>
+              <h4 className="font-medium text-[#8B2E2E] mb-3">Consulenza Culinaria</h4>
+              <p className="text-gray-600 font-light">Supporto del nostro chef per l'integrazione in menu</p>
             </Card>
           </div>
           
           <Link to="/contatti">
-            <Button size="lg" className="bg-[#8B2E2E] hover:bg-[#A73939] text-white px-8 py-4">
+            <Button size="lg" className="bg-[#8B2E2E] hover:bg-[#A73939] text-white px-8 py-4 font-light">
               Richiedi Consulenza Personalizzata
             </Button>
           </Link>
@@ -232,19 +232,19 @@ export default function ProductsCatalog() {
       {/* CTA Section */}
       <section className="py-16 bg-[#8B2E2E] text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Pronto a portare il BBQ nel tuo locale?</h2>
-          <p className="text-xl mb-8">
+          <h2 className="text-3xl font-light mb-6">Pronto a portare il BBQ nel tuo locale?</h2>
+          <p className="text-xl mb-8 font-light">
             Contatta il nostro team commerciale per ricevere listino prezzi e campioni gratuiti
           </p>
           
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             <Link to="/contatti">
-              <Button size="lg" className="bg-white text-[#8B2E2E] hover:bg-gray-100 px-8 py-4">
+              <Button size="lg" className="bg-white text-[#8B2E2E] hover:bg-gray-100 px-8 py-4 font-light">
                 Richiedi Listino B2B
               </Button>
             </Link>
             <Link to="/il-team">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#8B2E2E] px-8 py-4">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#8B2E2E] px-8 py-4 font-light">
                 Parla con un Esperto
               </Button>
             </Link>
