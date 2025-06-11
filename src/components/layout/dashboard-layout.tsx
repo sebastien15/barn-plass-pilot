@@ -13,7 +13,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+      <Header />
       <Sidebar isOpen={sidebarOpen} />
       
       <main
