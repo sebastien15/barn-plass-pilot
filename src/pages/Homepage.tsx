@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -176,12 +175,12 @@ export default function Homepage() {
           
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             <Link to="/contatti">
-              <Button size="lg" className="bg-white text-[#8B2E2E] hover:bg-gray-100 px-8 py-4 font-light shadow-lg">
+              <Button size="lg" className="bg-white text-[#8B2E2E] hover:bg-gray-100 px-8 py-4 font-medium shadow-lg">
                 Richiedi Preventivo
               </Button>
             </Link>
             <Link to="/il-team">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#8B2E2E] px-8 py-4 font-light">
+              <Button size="lg" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#8B2E2E] px-8 py-4 font-medium shadow-lg transition-all duration-300">
                 Conosci il Team
               </Button>
             </Link>
